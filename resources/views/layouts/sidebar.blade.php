@@ -24,8 +24,8 @@
 
     <style>
         nav .navbar-nav li a{
-  color: white !important;
-  }
+            color: white !important;
+        }
     </style>
 </head>
 
