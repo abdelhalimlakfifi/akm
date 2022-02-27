@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('content');
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('domain_id');
+            $table->foreign('domain_id')->references('id')->on('domains');
             $table->timestamps();
         });
     }
