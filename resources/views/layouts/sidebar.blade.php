@@ -17,7 +17,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard-rtl/">
-    <link rel = "icon" href="{{ asset('images/logo-whitout-background.png') }}" type = "image/x-icon">
+    <link rel="icon" href="{{ asset('images/logo-whitout-background.png') }}" type="image/x-icon">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -34,10 +34,14 @@
 <body>
     <div id="app">
         <div class="container">
-            <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
                 <div href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                    <a href="#" class="btn btn-outline-primary me-2">تسجيل الخروج</a>
+                    <a href="{{ route('logout') }}" class="btn btn-outline-primary me-2" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        تسجيل الخروج</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
 
                 <div class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -63,16 +67,16 @@
                             <a class="nav-link h5" aria-current="page" href="#">إضافة شعبة</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" href="#">كتابة مقال</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link h5" href="#">إنشاء حدث</a>
+                            <a class="nav-link h5" href="#">تجديد الإشتراك</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link h3" href="#"> إضافة مشترك </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" href="#">تجديد الإشتراك</a>
+                            <a class="nav-link h5" href="#">إنشاء حدث</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link h5" href="#">كتابة مقال</a>
                         </li>
                     </ul>
                 </div>
