@@ -64,19 +64,19 @@
                 <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link h5" aria-current="page" href="#">إضافة شعبة</a>
+                            <a class="nav-link h5" id="categorie" aria-current="page" href="{{ route('get.add.categories') }}">إضافة شعبة</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" href="#">تجديد الإشتراك</a>
+                            <a class="nav-link h5" id="updateAbonnement" href="#">تجديد الإشتراك</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h3" href="#"> إضافة مشترك </a>
+                            <a class="nav-link h3" id="addAbonnement" href="#"> إضافة مشترك </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" href="#">إنشاء حدث</a>
+                            <a class="nav-link h5" id="event" href="#">إنشاء حدث</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" href="#">كتابة مقال</a>
+                            <a class="nav-link h5" id="articles" href="#">كتابة مقال</a>
                         </li>
                     </ul>
                 </div>
