@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\categorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
+    
+    Route::get('/admin/get/categorie/add', [categorieController::class, 'index'])->name('get.add.categories');
 
     Route::get('/hello', function () {
         return view('welcome');
