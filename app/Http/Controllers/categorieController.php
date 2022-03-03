@@ -13,6 +13,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
+        $categories = Domain::all();
+        // dd($categories[0]->label);
         return view('pages/admin_pages/categories');
     }
 
@@ -28,7 +30,7 @@ class CategorieController extends Controller
         $categorie->description = $request->description;
         $categorie->save();
 
-        dd($categorie);
+        return response()->json($categorie);
     }
 
     /**
