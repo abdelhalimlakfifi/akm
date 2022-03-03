@@ -6,16 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Domain;
 class CategorieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $categories = Domain::all();
         // dd($categories[0]->label);
-        return view('pages/admin_pages/categories');
+        return view('pages/admin_pages/categories', ['categories' => $categories]);
     }
 
     public function create()
@@ -29,7 +25,6 @@ class CategorieController extends Controller
         $categorie->label = $request->label;
         $categorie->description = $request->description;
         $categorie->save();
-
         return response()->json($categorie);
     }
 
