@@ -3,7 +3,7 @@
 @section('content')
     <script src="{{ asset('js/index.js') }}"></script>
     <script>
-        replaceClass();
+        replaceClass('categorie');
     </script>
     <div class="container">
         <h2>Categories</h2>
