@@ -64,19 +64,19 @@
                 <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link h5" id="categorie" aria-current="page" href="{{ route('get.add.categories') }}">إضافة شعبة</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.add.categories') }}"><h5 id="categorie">إضافة شعبة</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" id="updateAbonnement" href="#">تجديد الإشتراك</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.subscriber.update') }}"><h5 id="updateAbonnement"> تجديد الإشتراك </h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h3" id="addAbonnement" href="#"> إضافة مشترك </a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.subscriber.add') }}"> <h3 id="addAbonnement"> إضافة مشترك </h3> </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" id="event" href="#">إنشاء حدث</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.event.create') }}"><h5 id="event">إنشاء حدث</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link h5" id="articles" href="#">كتابة مقال</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.article.create') }}"><h5 id="article">كتابة مقال</h5></a>
                         </li>
                     </ul>
                 </div>
