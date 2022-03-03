@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin/get/article/create', [articleController::class, 'index'])->name('get.article.create');
 
     Route::post('/admin/post/categorie/add', [categorieController::class, 'store'])->name('post.add.categorie');
+    
+
     Route::get('/hello', function () {
         return view('welcome');
     });
