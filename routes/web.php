@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/admin/post/categorie/add', [categorieController::class, 'store'])->name('post.add.categorie');
     
-
+    // Route::post('/test', [categorieController::class, ])
     Route::get('/hello', function () {
         return view('welcome');
     });

@@ -32,7 +32,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">غلق </button>
-                        <button type="button" class="btn btn-primary" id="submitButton" onclick="submit()">إضافة </button>
+                        <button type="button" class="btn btn-primary" onclick="clickSub()">إضافة </button>
                     </div>
                 </form>
             </div>
@@ -87,56 +87,21 @@
             });
         });
 
-        // document.getElementById('categorieForm').submit();
-
-        function test(){
-                let label = $("#label").val();
-                let description = $("#description").val();
-                // let _token = $("input[name=_token]").val();
-                console.log(label, description, _token);
+        function clickSub()
+        {
+            let label = $("#label").val();
+            let description = $("#description").val();
+            let _token = $("input[name=_token]").val();
+            console.log(label, description, _token);
+            $.ajax({
+                url: "{{ route('test') }}",
+                type:"POST",
+                data:{
+                    label: label,
+                    description: description,
+                    _token:_token
+                }
+            })
         }
-        // $("form#categorieForm").submit(function (e) {
-        //     console.log("test");
-        //     e.preventDefault();
-        //     // let label = $("#label").val();
-        //     // let description = $("#description").val();
-        //     // let _token = $("input[name=_token]").val();
-
-        //     // $.ajax({
-        //     //     url: "{{ route('post.add.categorie') }}",
-        //     //     type: "POST",
-        //     //     data: {
-        //     //         label: label,
-        //     //         description: description,
-        //     //         _token: _token,
-        //     //     },
-        //     //     success: function (response) {
-                    
-
-        //     //         if (response) {
-        //     //             Swal.fire(
-        //     //                 'تم الحفض بنجاح',
-        //     //                 '',
-        //     //                 'success'
-        //     //             )
-        //     //             $("#categorieForm")[0].reset();
-        //     //             var table = document.getElementById("catTable");
-        //     //             var row = table.insertRow(0);
-        //     //             var id = row.insertCell(0);
-        //     //             id.innerHTML = response.id;
-        //     //             var label = row.insertCell(1);
-        //     //             label.innerHTML = response.label;
-        //     //             var description = row.insertCell(2);
-        //     //             description.innerHTML = response.description
-        //     //             var numSub = row.insertCell(3);
-        //     //             numSub.innerHTML = '0000'
-        //     //             var actions = row.insertCell(4);
-        //     //             actions.innerHTML = ' <a href="" class="btn btn-outline-primary"> Update</a> <a href="" class="btn btn-danger"> Delete</a> '
-
-        //     //         }
-        //     //     }
-        //     // })
-        // })
-
     </script>
 @endsection
