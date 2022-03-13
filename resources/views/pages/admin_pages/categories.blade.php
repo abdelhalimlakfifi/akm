@@ -32,7 +32,39 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">غلق </button>
-                        <button type="button" class="btn btn-primary" onclick="clickSub()">إضافة </button>
+                        <button type="button" class="btn btn-primary" onclick="clickSub('add')">إضافة </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="catUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">تحديث الشعبة</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#catUpdateModal').modal('hide')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" dir="rtl">
+                <form id="categorieForm">
+                    @csrf
+                    <p id="idUpdated" hidden></p>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label float-left">إسم الشعبة :</label>
+                        <input type="text" class="form-control" name="labelUpdate" id="labelUpdate">
+                    </div> 
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">وصف الشعبة :</label>
+                        <textarea class="form-control" name="descriptionUpdate" id="descriptionUpdate"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="$('#catUpdateModal').modal('hide')">غلق </button>
+                        <button type="button" class="btn btn-primary" onclick="clickSub('update')">تحديث </button>
                     </div>
                 </form>
             </div>
@@ -68,40 +100,16 @@
                 <td>{{ $categorie->description }}</td>
                 <td> 0000 </td>
                 <td>
-                    <a href="" class="btn btn-outline-primary"> Update</a>
-                    <a href="" class="btn btn-danger"> Delete</a>
+                    <!-- <a href="" class="btn btn-outline-primary"> Update</a> -->
+                    
+                    <!-- <a href='/admin/post/categorie/delete/{{{ $categorie->id }}}' class="btn btn-danger"> Delete</a> -->
+                    <button class="btn btn-outline-primary" onclick="actionCat({{ $categorie->id }}, 'update', this)"> Update </button>
+                    <button class="btn btn-danger" onclick="actionCat({{ $categorie->id }}, 'delete', this)"> Delete </button>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 </div>
-    <script>
-        $(document).ready(function () {
-            $('#catTable').DataTable({
-                scrollY: 300,
-                scrollX: true,
-                scrollCollapse: true,
-                paging: true,
-                fixedColumns: true
-            });
-        });
-
-        function clickSub()
-        {
-            let label = $("#label").val();
-            let description = $("#description").val();
-            let _token = $("input[name=_token]").val();
-            console.log(label, description, _token);
-            $.ajax({
-                url: "{{ route('test') }}",
-                type:"POST",
-                data:{
-                    label: label,
-                    description: description,
-                    _token:_token
-                }
-            })
-        }
-    </script>
+    <script src="{{ asset('js/categorie.js') }}"></script>
 @endsection
