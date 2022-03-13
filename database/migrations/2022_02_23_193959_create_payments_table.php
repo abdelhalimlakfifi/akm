@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('guest_id');
             $table->foreign('guest_id')->references('id')->on('guests');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

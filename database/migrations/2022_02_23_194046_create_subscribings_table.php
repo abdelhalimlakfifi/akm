@@ -15,6 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('domain_id');
             $table->foreign('domain_id')->references('id')->on('domains');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

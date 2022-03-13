@@ -22,6 +22,7 @@ return new class extends Migration
                 $table->text('image_path')->nullable();
                 $table->boolean('is_admin')->default(false);
                 $table->timestamps();
+                $table->softDeletes();
         });
     }
 
