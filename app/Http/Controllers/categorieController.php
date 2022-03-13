@@ -59,7 +59,11 @@ class CategorieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $domain = Domain::find($id);
+        $domain->label = $request->label;
+        $domain->description = $request->description;
+        $domain->save();
+        return response()->json($domain);
     }
 
     /**
@@ -70,6 +74,7 @@ class CategorieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Domain::where('id', $id)->delete();
+        return "done";
     }
 }
