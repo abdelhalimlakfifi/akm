@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/admin/post/categorie/add', [categorieController::class, 'store'])->name('post.add.categorie');
     Route::post('/admin/post/categorie/update/{id}', [categorieController::class, 'update'])->name('post.update.categorie');
     Route::delete('/admin/post/categorie/delete/{id}', [categorieController::class, 'destroy']);
-    
+    Route::post('/test', [articleController::class, 'test']);
     Route::get('/hello', function () {
         return view('welcome');
     });
