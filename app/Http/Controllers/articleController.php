@@ -15,7 +15,11 @@ class articleController extends Controller
     {
         return view('pages/admin_pages/articles');
     }
-
+    public function test(Request $request)
+    {
+        //dd($request->all());
+        return view('test', ['text' => $request->contentTextArea]);
+    }
     /**
      * Show the form for creating a new resource.
      *
