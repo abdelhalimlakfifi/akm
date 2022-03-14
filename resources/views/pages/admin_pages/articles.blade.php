@@ -9,7 +9,8 @@
 <div class="container d-flex justify-content-center" dir="rtl">
     
 
-    <form class="w-50">
+    <form method="post" action="/test" class="w-50">
+        @csrf
         <div class="form-group text-center">
             <h2>كتابة مقال</h2>
         </div>
@@ -24,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="contentTextArea" name="contentTextArea" rows="3"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Example multiple select</label>
@@ -36,8 +37,15 @@
                 <option>5</option>
             </select>
         </div>
+
+        <button type="submit">Submit</button>
     </form>
 
-
+    <script src="https://cdn.tiny.cloud/1/01wxryr029aln5mghl92gqyxeip775dkfzelzlrsi9uvau00/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector:'#contentTextArea'
+        })
+    </script>
 </div>
 @endsection
