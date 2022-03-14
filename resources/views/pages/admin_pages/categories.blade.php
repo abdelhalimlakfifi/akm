@@ -35,6 +35,9 @@
                         <button type="button" class="btn btn-primary" onclick="clickSub('add')">إضافة </button>
                     </div>
                 </form>
+                <div class="alert alert-danger" id="errorMessage" role="alert" hidden>
+                    
+                </div>
             </div>
 
         </div>

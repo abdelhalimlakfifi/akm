@@ -47,6 +47,8 @@ function clickSub(action)
                 );
                 if(action == 'add')
                 {
+                    let errorArea = document.getElementById("errorMessage");
+                    errorArea.setAttribute("hidden", true);
                     console.log(response);
                     $("#categorieForm")[0].reset();
                     var table = document.getElementById("catTable");
@@ -65,6 +67,13 @@ function clickSub(action)
                     document.location.reload(true)
                 }
             }
+        },
+        error: function(res)
+        {
+            let errors = res.responseJSON.errors;
+            let errorArea = document.getElementById("errorMessage");
+            errorArea.removeAttribute("hidden");
+            errorArea.innerHTML = errors.label[0]
         }
     })
 }

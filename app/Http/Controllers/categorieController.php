@@ -18,9 +18,18 @@ class CategorieController extends Controller
     {
         //
     }
-
+    
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'label' => 'required|unique:domains,deleted_at,NULL'
+        ],
+        [
+            'label.required' => 'المرجو إدخال إسم الشعبة',
+            'label.unique' => 'شعبة موجودة من قبل'
+        ]
+        );
+
         $categorie = new Domain;
         $categorie->label = $request->label;
         $categorie->description = $request->description;
