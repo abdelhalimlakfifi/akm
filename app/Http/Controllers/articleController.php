@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Domain;
 
 class articleController extends Controller
 {
@@ -13,13 +14,14 @@ class articleController extends Controller
      */
     public function index()
     {
-        return view('pages/admin_pages/articles');
+        $domains = Domain::all();
+        return view('pages/admin_pages/articles', ['domains' => $domains]);
     }
-    public function test(Request $request)
-    {
-        //dd($request->all());
-        return view('test', ['text' => $request->contentTextArea]);
-    }
+    // public function test(Request $request)
+    // {
+    //     //dd($request->all());
+    //     return view('test', ['text' => $request->contentTextArea]);
+    // }
     /**
      * Show the form for creating a new resource.
      *
