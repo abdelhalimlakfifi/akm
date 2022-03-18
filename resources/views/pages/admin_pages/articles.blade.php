@@ -24,17 +24,16 @@
             <input type="file" name="files" class="form-control-file" id="files" multiple accept="image/png, image/gif, image/jpeg, video/mp4,video/x-m4v,video/*">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <label for="exampleFormControlTextarea1">  </label>
             <textarea class="form-control" id="contentTextArea" name="contentTextArea" rows="3"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Example multiple select</label>
             <select class="form-control" id="exampleFormControlSelect2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                @foreach($domains as $domain)
+                <option>{{ $domain->label }}</option>
+                
+                @endforeach
             </select>
         </div>
 
