@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Domain;
+use App\Http\Requests\DomainStoreRequest;
 class CategorieController extends Controller
 {
     
@@ -19,17 +20,11 @@ class CategorieController extends Controller
         //
     }
     
-    public function store(Request $request)
+    public function store(DomainStoreRequest $request)
     {
-        $validated = $request->validate([
-            'label' => 'required|unique:domains,deleted_at,NULL'
-        ],
-        [
-            'label.required' => 'المرجو إدخال إسم الشعبة',
-            'label.unique' => 'شعبة موجودة من قبل'
-        ]
-        );
-
+        //dd(1);
+        $validated = $request->validated();
+        //dd($validated);
         $categorie = new Domain;
         $categorie->label = $request->label;
         $categorie->description = $request->description;
