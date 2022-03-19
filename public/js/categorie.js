@@ -20,7 +20,6 @@ function clickSub(action)
         description = $("#description").val();
         url = "/admin/post/categorie/add";
     } else if(action == 'update'){
-        
 
         label = $("#labelUpdate").val();
         description = $("#descriptionUpdate").val();
@@ -62,7 +61,7 @@ function clickSub(action)
                     var numSub = row.insertCell(3);
                     numSub.innerHTML = '0000'
                     var actions = row.insertCell(4);
-                    actions.innerHTML = `<a href="" class="btn btn-outline-primary"> Update</a> <a href="/admin/post/categorie/delete/${response.id}" class="btn btn-danger"> Delete</a> `
+                    actions.innerHTML = `<button onclick="actionCat(${response.id}, 'update', this)" class="btn btn-outline-primary"> Update</button> <button onclick="actionCat(${response.id}, 'delete', this)" class="btn btn-danger"> Delete</button> `
                 } else {
                     document.location.reload(true)
                 }
