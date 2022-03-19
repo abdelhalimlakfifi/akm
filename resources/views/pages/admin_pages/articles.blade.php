@@ -19,7 +19,10 @@
             <input type="text" class="form-control" id="title" placeholder="عنوان">
         </div>
         <div class="form-group mt-3 mb-3">
-            
+            <label for="files"> إختيار الصورة الرئسية </label>
+            <input type="file" name="files" class="form-control-file" id="files" accept="image/png, image/gif, image/jpeg">
+        </div>
+        <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار صور </label>
             <input type="file" name="files" class="form-control-file" id="files" multiple accept="image/png, image/gif, image/jpeg, video/mp4,video/x-m4v,video/*">
         </div>
