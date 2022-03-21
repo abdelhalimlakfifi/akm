@@ -24,14 +24,28 @@ class articleController extends Controller
     public function store(Request $request)
     {
         // $name = $request->file('principle_image')->getClientOriginalName();
-        dd($request->all(),$request->file('principle_image'),$request->file('files'));
+        //dd($request->file('principleImage'), $request->file('files'), $request->all());
+        
         $now = date('_Y_m_d_H_i_s');
         $title = $request->title;
         $filesPath = str_replace(' ','_',$title).$now;
-        
-        $request->file('principle_image')->storeAs('articles/'.$filesPath.'/principle',$request->file('principle_image')->getClientOriginalName());
+        //dd($request->file('principleImage'));
+        $request->file('principleImage')
+                ->storeAs('articles/'.$filesPath.'/principle',$request->file('principleImage')->getClientOriginalName());
 
+        if(intval($request->totalFiles) > 0)
+        {
+            for($i = 0; $i < intval($request->totalFiles); $i++)
+            {
+                if($request->hasFile('files'.$i))
+                {
+                    dump($request->file('files'.$i));
+                }
+            }
+            dd(1);
+        }
         //dd($request->file('files'));
+        
         foreach($request->file('files') as $file)
         {
             $file->storeAs('articles/'.$filesPath , $file->getClientOriginalName());
