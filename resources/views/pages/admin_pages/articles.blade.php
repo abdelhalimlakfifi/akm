@@ -30,9 +30,10 @@
             <label for="exampleFormControlTextarea1">  </label>
             <textarea class="form-control" id="contentTextArea" name="contentTextArea" rows="3"></textarea>
         </div>
+        <br>
         <div class="form-group">
-            <label for="exampleFormControlSelect2">Example multiple select</label>
-            <select class="form-control" id="exampleFormControlSelect2" name="domain">
+            <label for="exampleFormControlSelect2">إختر الشعبة</label>
+            <select class="form-control" id="domainOption" name="domain">
                 @foreach($domains as $domain)
                     <option value="{{ $domain->id }}">{{ $domain->label }}</option>
                 @endforeach

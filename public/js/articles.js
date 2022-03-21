@@ -16,7 +16,8 @@
     //     })
     // })
 
-function formSubmit(event){
+function formSubmit(event)
+{
     event.preventDefault();
     let formData        = new FormData();
     var principleImage  = $('#principle_image').prop('files')[0];
@@ -25,14 +26,16 @@ function formSubmit(event){
     let files = $('#files')[0];
     for (let i = 0; i < TotalFiles; i++) {
         formData.append('files' + i, files.files[i]);
-        }
+    }
 
-    formData.append('principleImage', principleImage);
     formData.append('_token', _token);
+    formData.append('title', $('#title').val());
+    formData.append('principleImage', principleImage);
     formData.append('totalFiles', TotalFiles);
+    formData.append('contentTextArea', $('#contentTextArea').val());
+    formData.append('domainOption', $('#domainOption').val());
     
-    // var images = $('#files').prop('files');
-    // console.log(principleImage, images);
+    
     $.ajax({
         url:'/admin/post/article/create',
         dataType:'text',
@@ -41,8 +44,8 @@ function formSubmit(event){
         processData : false,
         data        : formData,
         type: "post",
-        success: function (output) {
-            console.log(output);
+        success: function (response) {
+            console.log(response);
             alert("Done")
         }
     })

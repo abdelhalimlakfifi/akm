@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class articleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $domains = Domain::all();
@@ -23,11 +18,10 @@ class articleController extends Controller
 
     public function store(Request $request)
     {
-        // $name = $request->file('principle_image')->getClientOriginalName();
-        //dd($request->file('principleImage'), $request->file('files'), $request->all());
         
         $now = date('_Y_m_d_H_i_s');
         $title = $request->title;
+        //dd($title);
         $filesPath = str_replace(' ','_',$title).$now;
         //dd($request->file('principleImage'));
         $request->file('principleImage')
@@ -39,27 +33,20 @@ class articleController extends Controller
             {
                 if($request->hasFile('files'.$i))
                 {
-                    dump($request->file('files'.$i));
+                    $request->file('files'.$i)->storeAs('articles/'.$filesPath, $request->file('files'.$i)->getClientOriginalName());
                 }
             }
-            dd(1);
         }
-        //dd($request->file('files'));
-        
-        foreach($request->file('files') as $file)
-        {
-            $file->storeAs('articles/'.$filesPath , $file->getClientOriginalName());
-        }
-        
-        $article = new Article;
-        $article->titre = $request->title;
+
+        $article            = new Article;
+        $article->titre     = $request->title;
         $article->file_path = $filesPath;
-        $article->content = $request->contentTextArea;
-        $article->user_id = Auth::id();
+        $article->content   = $request->contentTextArea;
+        $article->user_id   = Auth::id();
         $article->domain_id = intval($request->domain);
         $article->save();
 
-        // return view()
+        return response()->json($article);
     }
 
 
