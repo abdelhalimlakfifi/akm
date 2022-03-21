@@ -1,24 +1,7 @@
-    // $('#article_form').submit(function (event){
-    //     console.log("111");
-    //     event.preventDefault();
-    //     $.ajax({
-    //         url:'/admin/post/article/create',
-    //         type:'POST',
-    //         data:new FormData(this),
-    //         dataType:'JSON',
-    //         contentType: false,
-    //         cache: false,
-    //         processData: false,
-    //         success:function(data)
-    //                 {
-    //                     alert("Done")
-    //                 }
-    //     })
-    // })
-
 function formSubmit(event)
 {
     event.preventDefault();
+    tinyMCE.triggerSave();
     let formData        = new FormData();
     var principleImage  = $('#principle_image').prop('files')[0];
     let _token          = $("input[name=_token]").val();
@@ -45,8 +28,17 @@ function formSubmit(event)
         data        : formData,
         type: "post",
         success: function (response) {
-            console.log(response);
-            alert("Done")
+            Swal.fire(
+                'تم الحفض بنجاح',
+                '',
+                'success'
+            );
+            document.getElementById('article_form').reset();
         }
     })
+}
+
+function cancel()
+{
+    document.getElementById('article_form').reset();
 }
