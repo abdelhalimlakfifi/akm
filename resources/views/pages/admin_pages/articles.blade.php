@@ -9,14 +9,14 @@
 <div class="container d-flex justify-content-center" dir="rtl">
     
 
-    <form method="post" action="{{ route('post.article.create') }}" class="w-50" enctype="multipart/form-data">
+    <form id="article_form" class="w-50" enctype="multipart/form-data">
         @csrf
         <div class="form-group text-center">
             <h2>كتابة مقال</h2>
         </div>
         <div class="form-group">
             <label for="title">عنوان</label>
-            <input type="text" name="title" class="form-control" id="title" placeholder="عنوان">
+            <input type="text" name="title" required class="form-control" id="title" placeholder="عنوان">
         </div>
         <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار الصورة الرئسية </label>
@@ -41,7 +41,7 @@
 
         <button type="submit">Submit</button>
     </form>
-
+    <script src="{{ asset('js/articles.js') }}"></script>
     <script src="https://cdn.tiny.cloud/1/01wxryr029aln5mghl92gqyxeip775dkfzelzlrsi9uvau00/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
