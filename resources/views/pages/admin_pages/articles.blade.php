@@ -16,16 +16,16 @@
         </div>
         <div class="form-group">
             <label for="title">عنوان</label>
-            <input type="text" name="title" required class="form-control" id="title" placeholder="عنوان">
+            <input type="text" name="title" required class="form-control" id="title" placeholder="عنوان" required>
         </div>
         <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار الصورة الرئسية </label>
-            <input type="file" name="principle_image" class="form-control-file" id="principle_image" accept="image/png, image/gif, image/jpeg">
+            <input type="file" name="principle_image" class="form-control-file" id="principle_image" accept="image/png, image/gif, image/jpeg" required>
             
         </div>
         <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار صور </label>
-            <input type="file" name="files[]" class="form-control-file" id="files" multiple accept="image/png, image/gif, image/jpeg, video/mp4,video/x-m4v,video/*">
+            <input type="file" name="files[]" class="form-control-file" id="files" multiple accept="image/png, image/gif, image/jpeg, video/mp4,video/x-m4v,video/*" required>
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">  </label>
@@ -34,7 +34,7 @@
         <br>
         <div class="form-group">
             <label for="exampleFormControlSelect2">إختر الشعبة</label>
-            <select class="form-control" id="domainOption" name="domain">
+            <select class="form-control" id="domainOption" name="domain" required>
                 @foreach($domains as $domain)
                     <option value="{{ $domain->id }}">{{ $domain->label }}</option>
                 @endforeach
