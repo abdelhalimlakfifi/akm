@@ -24,7 +24,7 @@ class articleController extends Controller
     public function store(Request $request)
     {
         // $name = $request->file('principle_image')->getClientOriginalName();
-        
+        dd($request->all(),$request->file('principle_image'),$request->file('files'));
         $now = date('_Y_m_d_H_i_s');
         $title = $request->title;
         $filesPath = str_replace(' ','_',$title).$now;
@@ -45,7 +45,7 @@ class articleController extends Controller
         $article->domain_id = intval($request->domain);
         $article->save();
 
-        
+        // return view()
     }
 
 
