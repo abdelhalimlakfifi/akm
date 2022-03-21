@@ -9,7 +9,7 @@
 <div class="container d-flex justify-content-center" dir="rtl">
     
 
-    <form id="article_form" class="w-50" enctype="multipart/form-data">
+    <form id="article_form" onsubmit="return formSubmit(event);" class="w-50" enctype="multipart/form-data">
         @csrf
         <div class="form-group text-center">
             <h2>كتابة مقال</h2>

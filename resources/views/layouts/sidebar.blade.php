@@ -36,7 +36,6 @@
         nav .navbar-nav li a {
             color: white !important;
         }
-
     </style>
 </head>
 
