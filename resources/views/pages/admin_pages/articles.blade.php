@@ -21,6 +21,7 @@
         <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار الصورة الرئسية </label>
             <input type="file" name="principle_image" class="form-control-file" id="principle_image" accept="image/png, image/gif, image/jpeg">
+            
         </div>
         <div class="form-group mt-3 mb-3">
             <label for="files"> إختيار صور </label>
@@ -40,7 +41,8 @@
             </select>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-success btn-lg  mt-3" style="width: 100%;">حفظ</button>
+        <button type="button" class="btn btn-danger btn-lg  mt-3" onclick="cancel()" style="width: 100%;">تراجع</button>
     </form>
     <script src="{{ asset('js/articles.js') }}"></script>
     <script src="https://cdn.tiny.cloud/1/01wxryr029aln5mghl92gqyxeip775dkfzelzlrsi9uvau00/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -48,6 +50,10 @@
         tinymce.init({
             selector:'#contentTextArea'
         })
+        // var loadFile = function(event) {
+        //     var image = document.getElementById('output');
+        //     image.src = URL.createObjectURL(event.target.files[0]);
+        // };
     </script>
 </div>
 @endsection
