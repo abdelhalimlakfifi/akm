@@ -7,6 +7,9 @@ use App\Models\Domain;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Validator;
+use Response;
+
 class articleController extends Controller
 {
     public function index()
@@ -18,14 +21,33 @@ class articleController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->contentTextArea);
-        //dd(intval($request->domainOption));
+        
+        // $validated = $request->validated();
+        $validator = Validator::make($request->all(),
+            [
+                "title" => "required",
+                "principleImage" => "required|image|mimes:jpg,png,jpeg,gif",
+                "contentTextArea" => "required",
+                "domainOption" => "required|not_in:0"
+            ]
+        );
+        if ($validator->fails())
+        {
+            return Response::json([
+                'success' => false,
+                'errors'    => $validator->getMessageBag()->toArray()
+            ], 400);
+        } 
+        
         $now = date('_Y_m_d_H_i_s');
         $title = $request->title;
-        //dd($title);
+        
         $filesPath = str_replace(' ','_',$title).$now;
-        //dd($request->file('principleImage'));
+
+        $filesPath = str_replace(array('\\', '/',':' , '*', '"', "'", ">", "<", "|", '?', '؟'), '_', $filesPath);
+        //dd($filesPath);
         $request->file('principleImage')->storeAs('articles/'.$filesPath.'/principle',$request->file('principleImage')->getClientOriginalName());
+
         if(intval($request->totalFiles) > 0)
         {
             for($i = 0; $i < intval($request->totalFiles); $i++)
@@ -47,7 +69,6 @@ class articleController extends Controller
 
         return response()->json($article);
     }
-
 
     public function create()
     {
