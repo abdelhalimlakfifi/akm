@@ -28,12 +28,38 @@ function formSubmit(event)
         data        : formData,
         type: "post",
         success: function (response) {
+            console.log(response);
+            console.log();
             Swal.fire(
                 'تم الحفض بنجاح',
                 '',
                 'success'
             );
             document.getElementById('article_form').reset();
+        },
+        error: function(res)
+        {
+            errorMessage = ""
+            let ifExiste = JSON.parse(res.responseText).errors.hasOwnProperty("title") || JSON.parse(res.responseText).errors.hasOwnProperty("principleImage") || JSON.parse(res.responseText).errors.hasOwnProperty("domainOption") || JSON.parse(res.responseText).errors.hasOwnProperty("contentTextArea")
+            
+            if(JSON.parse(res.responseText).errors.hasOwnProperty("title")){
+                errorMessage += "\nالمرجو إدخال العنوان"
+            }
+            if(JSON.parse(res.responseText).errors.hasOwnProperty("principleImage")){
+                errorMessage += "المرجو ادخال الصورة الرئسية بصيغة JPG/PNJ/JPEG \n"
+            }
+            if(JSON.parse(res.responseText).errors.hasOwnProperty("domainOption")){
+                errorMessage += "\nالمرجو إختيار الشعبة"
+            }
+            if(JSON.parse(res.responseText).errors.hasOwnProperty("contentTextArea")){
+                errorMessage += "المرجو إدخال المحتوى"
+            }
+            // console.log(errorMessage);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: errorMessage
+              })
         }
     })
 }
