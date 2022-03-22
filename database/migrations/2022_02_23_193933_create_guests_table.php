@@ -25,7 +25,6 @@ return new class extends Migration
             $table->date('expiration_date');
             $table->boolean('isEngaged')->default(false);
             $table->boolean('is_subscriber')->default(false);
-            $table->date('deletedAt')->nullable();
             $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
