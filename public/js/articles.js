@@ -59,7 +59,7 @@ function formSubmit(event)
                 icon: 'error',
                 title: 'Oops...',
                 text: errorMessage
-              })
+            })
         }
     })
 }
