@@ -1,10 +1,5 @@
 @extends('layouts.sidebar')
-
 @section('content')
-<script src="{{ asset('js/index.js') }}"></script>
-<script>
-    replaceClass('categorie');
-</script>
 <!-- ======================================================================================== -->
 <!-- Button trigger modal -->
 <!-- Modal -->
@@ -42,45 +37,13 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="catUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">تحديث الشعبة</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('#catUpdateModal').modal('hide')">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" dir="rtl">
-                <form id="categorieForm">
-                    @csrf
-                    <p id="idUpdated" hidden></p>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label float-left">إسم الشعبة :</label>
-                        <input type="text" class="form-control" name="labelUpdate" id="labelUpdate">
-                    </div> 
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">وصف الشعبة :</label>
-                        <textarea class="form-control" name="descriptionUpdate" id="descriptionUpdate"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="$('#catUpdateModal').modal('hide')">غلق </button>
-                        <button type="button" class="btn btn-primary" onclick="clickSub('update')">تحديث </button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
 <!-- ======================================================================================== -->
 
-
+<h1>Test</h1>
 <div class="position-relative">
     <button type="button" class="btn btn-success position-absolute top-0 end-50" data-toggle="modal"
         data-target="#catModal">
-        إضافة شعبة
+        إضافة مشترك    
     </button>
 </div>
 <div class="container mt-5">
