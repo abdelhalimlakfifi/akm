@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label float-left">إسم الشعبة :</label>
                         <input type="text" class="form-control" name="label" id="label">
-                    </div> 
+                    </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">وصف الشعبة :</label>
                         <textarea class="form-control" name="description" id="description"></textarea>
@@ -30,7 +30,7 @@
                     </div>
                 </form>
                 <div class="alert alert-danger" id="errorMessage" role="alert" hidden>
-                    
+
                 </div>
             </div>
 
@@ -39,39 +39,58 @@
 </div>
 <!-- ======================================================================================== -->
 
-<h1>Test</h1>
-<div class="position-relative">
-    <button type="button" class="btn btn-success position-absolute top-0 end-50" data-toggle="modal"
-        data-target="#catModal">
-        إضافة مشترك    
+<h1 class="text-center">إضافة مشترك</h1>
+<div class="text-center">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#catModal">
+        إضافة مشترك
     </button>
 </div>
-<div class="container mt-5">
-    <table id="catTable" class="stripe row-border order-column" style="width:100%">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>إسم الشعبة</th>
-                <th>وصف الشعبة</th>
-                <th> عدد المشتركين </th>
-                <th> فعل </th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <!-- <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> 0000 </td>
-                <td> 
-                    <button class="btn btn-outline-primary" onclick="actionCat(, 'update', this)"> Update </button>
-                    <button class="btn btn-danger" onclick="actionCat(, 'delete', this)"> Delete </button>
-                </td>
-            </tr> -->
-            
-        </tbody>
-    </table>
+<div class="container text-center">
+    <div class="row text-center">
+        <div class="col-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center">
+
+    </div>
+    <div class="row align-items-end">
+
+    </div>
 </div>
-    <script src="{{ asset('js/categorie.js') }}"></script>
+
+<script src="{{ asset('js/categorie.js') }}"></script>
 @endsection
