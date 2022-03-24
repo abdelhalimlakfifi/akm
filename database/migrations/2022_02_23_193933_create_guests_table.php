@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('name');
             $table->string('email')->nullable();
+            $table->string('gender');
             $table->string('phone')->nullable();
             $table->string('cin')->unique()->nullable();
             $table->float('price');
