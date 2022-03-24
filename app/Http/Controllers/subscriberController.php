@@ -11,6 +11,10 @@ class subscriberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        return view('pages/admin_pages/abonnements');
+    }
     public function index_add()
     {
         return view('pages/admin_pages/addAbonnement');
