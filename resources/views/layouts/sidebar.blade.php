@@ -79,7 +79,7 @@
                             <a class="nav-link" aria-current="page" href="{{ route('get.subscriber.update') }}"><h5 id="updateAbonnement"> تجديد الإشتراك </h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('get.subscriber.add') }}"> <h3 id="addAbonnement"> إضافة مشترك </h3> </a>
+                            <a class="nav-link" aria-current="page" href="{{ route('get.subscribers') }}"> <h3 id="addAbonnement"> إضافة مشترك </h3> </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{ route('get.event.create') }}"><h5 id="event">إنشاء حدث</h5></a>
