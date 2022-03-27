@@ -70,8 +70,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Message input -->
+        @for ($i=0; $i < 10 ; $i++)
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
@@ -86,7 +85,10 @@
                 </div>
             </div>
         </div>
-        <<div class="form-outline mb-4">
+        @endfor
+        <!-- Message input -->
+        
+        <!-- <div class="form-outline mb-4">
             <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
             <label class="form-check-label" for="form6Example8"> Create an account? </label>
         </div>
@@ -97,7 +99,7 @@
         <div class="form-outline mb-4">
             <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
             <label class="form-check-label" for="form6Example8"> Create an account? /label>
-        </div>
+        </div> -->
         <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
     </form>
