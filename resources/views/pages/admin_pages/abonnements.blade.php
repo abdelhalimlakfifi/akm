@@ -7,7 +7,7 @@
 <!-- ======================================================================================== -->
 
 <div class="text-center">
-    <a type="button" href="{{ route('get.subscriber.add') }}" class="btn btn-success">
+    <a type="button" href="{{ route('get.subscriber.add') }}" class="btn btn-success" target="blank">
         إضافة مشترك
     </a>
 </div>
