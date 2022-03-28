@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Domain;
 class subscriberController extends Controller
 {
     /**
@@ -16,8 +16,11 @@ class subscriberController extends Controller
         return view('pages/admin_pages/abonnements');
     }
     public function index_add()
-    {
-        return view('pages/admin_pages/addAbonnement');
+    {   
+        $domains = Domain::all();
+        $domains = $domains->chunk(2);
+        
+        return view('pages/admin_pages/addAbonnement', ["domains" => $domains, "index" => 0]);
     }
     public function index_update()
     {
