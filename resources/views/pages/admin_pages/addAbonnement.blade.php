@@ -70,47 +70,23 @@
                 </div>
             </div>
         </div>
+        @foreach($domains as $domain)
         <div class="row mb-4">
             <div class="col">
-                <div class="row">
-                    <div class="col-lg-6 mx-auto">
-                        <label class="text-white mb-3 lead">Where do you live?</label>
-                        <!-- Multiselect dropdown -->
-                        <select multiple data-style="bg-white rounded-pill px-4 py-3 shadow-sm "
-                            class="selectpicker w-100">
-                            <option>United Kingdom</option>
-                            <option>United States</option>
-                            <option>France</option>
-                            <option>Germany</option>
-                            <option>Italy</option>
-                        </select><!-- End -->
-                    </div>
+                <div class="form-outline">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+                    <label class="form-check-label" for="form6Example8"> Create an account?  {{ $domain[0]->label }}</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
-                    <label class="form-label" for="form6Example1">عدد الشهور المؤداة</label>
-                    <input type="number" id="form6Example1" class="form-control" />
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+                    <label class="form-check-label" for="form6Example8"> Create an account? </label>
                 </div>
             </div>
         </div>
+        @endforeach
 
-
-
-
-        <!-- <div class="form-outline mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> Create an account? </label>
-        </div>
-        <div class="form-outline mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> Create an account? </label>
-        </div>
-        <div class="form-outline mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> Create an account? /label>
-        </div> -->
-        <!-- Submit button -->
         <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
     </form>
 </div>
