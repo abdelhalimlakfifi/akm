@@ -17,7 +17,11 @@ class subscriberController extends Controller
     {   
         $domains = Domain::all();
         $domains = $domains->chunk(2);
-        // dd($domains);
+        foreach ($domains as $key => $chunk) {
+            $domains[$key] = array_values($chunk->toArray());
+        }
+        //dd($domains);
+        
         return view('pages/admin_pages/addAbonnement', ["domains" => $domains, "index" => 0]);
     }
 
