@@ -19,7 +19,7 @@ class subscriberController extends Controller
     {   
         $domains = Domain::all();
         $domains = $domains->chunk(2);
-        
+        // dd($domains);
         return view('pages/admin_pages/addAbonnement', ["domains" => $domains, "index" => 0]);
     }
     public function index_update()
@@ -42,6 +42,7 @@ class subscriberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
         //
