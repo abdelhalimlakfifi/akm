@@ -74,16 +74,18 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-                    <label class="form-check-label" for="form6Example8"> Create an account?  {{ $domain[0]->label }}</label>
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8"  />
+                    <label class="form-check-label" for="form6Example8"> {{ $domain[0]['label'] }}</label>
                 </div>
             </div>
+            @isset($domain[1])
             <div class="col">
                 <div class="form-outline">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-                    <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8"  />
+                    <label class="form-check-label" for="form6Example8"> {{ $domain[1]['label']}}</label>
                 </div>
             </div>
+            @endisset
         </div>
         @endforeach
 
