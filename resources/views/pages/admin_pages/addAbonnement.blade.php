@@ -7,13 +7,13 @@
         <!-- Text input for full name -->
         <div class="form-outline mb-4">
             <label class="form-label" for="fullname">الاسم الكامل</label>
-            <input type="text" id="fullname" name="fullname" class="form-control" />
+            <input type="text" id="fullname" name="fullname" class="form-control" required/>
         </div>
 
         <!-- Text input for email -->
         <div class="form-outline mb-4">
             <label class="form-label" for="email">البريد الالكتروني</label>
-            <input type="text" id="email" name="email" class="form-control" />
+            <input type="email" id="email" name="email" class="form-control" />
         </div>
 
         <!-- 2 column grid layout with text inputs for the Phone & CIN -->
@@ -21,13 +21,13 @@
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="phone">رقم الهاتف</label>
-                    <input type="text" id="phone" name="phone" class="form-control" />
+                    <input type="text" id="phone" name="phone" class="form-control" required />
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="cin">ر.ب.و | CIN</label>
-                    <input type="text" id="cin" name="cin" class="form-control" />
+                    <input type="text" id="cin" name="cin" class="form-control" required />
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="col">
                 <div class="form-outline">
                     <label for="sex" class="form-label">الجنس</label>
-                    <select id="sex" name="sex" class="form-control">
+                    <select id="sex" name="sex" class="form-control" required>
                         <option selected>...إختر</option>
                         <option value="male">ذكر</option>
                         <option value="female">أنثى</option>
@@ -47,7 +47,7 @@
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="birthday">تاريخ الازدياد</label>
-                    <input type="date" id="birthday" name="birthday" class="form-control" />
+                    <input type="date" id="birthday" name="birthday" required class="form-control" />
                 </div>
             </div>
         </div>
@@ -57,13 +57,13 @@
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="price">مساهمة للشهر</label>
-                    <input type="number" id="price" class="form-control" />
+                    <input type="number" id="price" class="form-control" required />
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="numOfMonths">عدد الشهور المؤداة</label>
-                    <input type="number" id="numOfMonths" class="form-control" />
+                    <input type="number" id="numOfMonths" class="form-control" required/>
                 </div>
             </div>
         </div>
@@ -90,6 +90,6 @@
     </form>
 </div>
 
-<script src="{{ asset('js/add_abonnement.js')}}"></script>
+<script src="{{ asset('js/add_abonnement.js') }}"></script>
 
 @endsection
