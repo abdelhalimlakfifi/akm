@@ -31,4 +31,5 @@ Route::group(['middleware' => 'auth'], function() {
     //users
     Route::get('/admin/get/subscribers', [subscriberController::class, 'index'])->name('get.subscribers');
     Route::get('/admin/get/subscriber/add', [subscriberController::class, 'index_add'])->name('get.subscriber.add');
+    Route::post('/admin/post/subscriber/add', [subscriberController::class, 'store']);
 });
