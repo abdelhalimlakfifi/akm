@@ -5,9 +5,19 @@
 <div class="container w-50 p-3">
     <form id="addAbonnement" onsubmit="return formSubmit(event);" enctype="multipart/form-data">
         <!-- Text input for full name -->
+        @csrf
+        <div class="text-center">
+            <img class="img-fluid rounded-circle w-25 p-3" id='imageplace' src="{{ asset('images/image_anonym/anonym_image.jpg') }}" alt="">
+        </div>
+        
+        <div class="form-outline mb-4">
+            <label for="image" class="form-label">رفع الصورة</label>
+            <input type="file" id="image" name="image" onchange="document.getElementById('imageplace').src=window.URL.createObjectURL(this.files[0])" class="form-control">
+        </div>
+
         <div class="form-outline mb-4">
             <label class="form-label" for="fullname">الاسم الكامل</label>
-            <input type="text" id="fullname" name="fullname" class="form-control" required/>
+            <input type="text" id="fullname" name="fullname" class="form-control" required />
         </div>
 
         <!-- Text input for email -->
@@ -63,7 +73,7 @@
             <div class="col">
                 <div class="form-outline">
                     <label class="form-label" for="numOfMonths">عدد الشهور المؤداة</label>
-                    <input type="number" id="numOfMonths" class="form-control" required/>
+                    <input type="number" id="numOfMonths" class="form-control" required />
                 </div>
             </div>
         </div>
@@ -72,14 +82,16 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
-                    <input class="form-check-input me-2 checkBoxes" type="checkbox" name="checkBoxes" value="{{ $domain[0]['id'] }}" id="{{ $domain[0]['id'] }}"  />
+                    <input class="form-check-input me-2 checkBoxes" type="checkbox" name="checkBoxes"
+                        value="{{ $domain[0]['id'] }}" id="{{ $domain[0]['id'] }}" />
                     <label class="form-check-label" for="{{ $domain[0]['id'] }}"> {{ $domain[0]['label'] }}</label>
                 </div>
             </div>
             @isset($domain[1])
             <div class="col">
                 <div class="form-outline">
-                    <input class="form-check-input me-2 checkBoxes" type="checkbox" name="checkBoxes" value="{{ $domain[1]['id'] }}" id="{{ $domain[1]['id'] }}"  />
+                    <input class="form-check-input me-2 checkBoxes" type="checkbox" name="checkBoxes"
+                        value="{{ $domain[1]['id'] }}" id="{{ $domain[1]['id'] }}" />
                     <label class="form-check-label" for="{{ $domain[1]['id'] }}"> {{ $domain[1]['label']}}</label>
                 </div>
             </div>
