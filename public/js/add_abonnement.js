@@ -2,39 +2,44 @@ function formSubmit(event)
 {
     event.preventDefault();
     // alert('done');
-    let fullname    = $('#fullname').val();
-    let email       = $('#email').val();
-    let phone       = $('#phone').val();
-    let cin         = $('#cin').val();
-    let sex         = $('#sex').val();
-    let birthday    = $('#birthday').val();
-    let price       = $('#price').val();
-    let numOfMonths = $('#numOfMonths').val();
-    let _token = $("input[name=_token]").val();
-
     let checkedValues = []
     $('input:checkbox[name=checkBoxes]:checked').each(function(){
         checkedValues.push($(this).val());
     });
     if(checkedValues.length > 0)
     {
+        let formData = new FormData();
+        let fullname    = $('#fullname').val();
+        formData.append('fullname', fullname);
+        let email       = $('#email').val();
+        formData.append('email', email);
+        let phone       = $('#phone').val();
+        formData.append('phone', phone);
+        let cin         = $('#cin').val();
+        formData.append('cin', cin);
+        let sex         = $('#sex').val();
+        formData.append('sex', sex);
+        let birthday    = $('#birthday').val();
+        formData.append('birthday', birthday);
+        let price       = $('#price').val();
+        formData.append('price', price);
+        let numOfMonths = $('#numOfMonths').val();
+        formData.append('numOfMonths', numOfMonths);
+        let _token      = $("input[name=_token]").val();
+        formData.append('_token', _token);
+        let file        = $('#image').prop('files')[0];
+        formData.append('image', file);
+        formData.append('checkedValues', checkedValues);
         $.ajax({
         url: "/admin/post/subscriber/add",
             type: "POST",
-            data: {
-                fullname,
-                email,
-                phone,
-                cin,
-                sex,
-                birthday,
-                price,
-                numOfMonths,
-                checkedValues,
-                _token
-            },
+            dataType:'text',
+            cache       : false,
+            contentType : false,
+            processData : false,
+            data: formData,
             success: function(res){
-    
+                console.log(res);
             },
             error: function(res){
     
