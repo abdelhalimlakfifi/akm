@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Domain;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\Validator;
 use Response;
 
