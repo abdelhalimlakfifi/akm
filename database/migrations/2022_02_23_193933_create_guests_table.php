@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('gender');
             $table->string('phone')->nullable();
-            $table->string('cin')->unique()->nullable();
+            $table->string('cin')->nullable();
             $table->float('price');
             $table->date('birthday');
             $table->text('image_path')->nullable();
