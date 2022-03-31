@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Domain;
 use Illuminate\Support\Facades\Validator;
 use Response;
+use Carbon\Carbon;
 class subscriberController extends Controller
 {
 
@@ -64,6 +65,27 @@ class subscriberController extends Controller
                 'errors'    =>   $validator->getMessageBag()->toArray()
             ], 400);
         }
+        
+        if($request->image == 'undefined'){
+            $image = 'undefined';
+        } 
+        else 
+        {
+            $now        =   date('_Y_m_d_H_i_s');
+            $filepath   =   str_replace(' ', '_', $request->fullname).$now;
+            $filepath   =   str_replace(array('\\', '/',':' , '*', '"', "'", ">", "<", "|", '?', '؟'), '_', $filepath);
+            //dd($filepath, $request->file('image')->getClientOriginalName());
+            $request->file('image')->storeAs('guests/'.$filepath, $request->file('image')->getClientOriginalName());
+            $image = $filepath.'/'.$request->file('image')->getClientOriginalName();
+            
+        }
+
+        $numOfMonth = $request->numOfMonths;
+        $numOfMonth = intval($numOfMonth);
+        $expirationDate = Carbon::now()->addMonths($numOfMonth);
+        
+        dd($filepath);
+        dd($expirationDate, $numOfMonth);
         dd($request->all());
     }
 
