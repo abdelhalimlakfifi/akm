@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Domain;
+use App\Models\Guest;
+use App\Models\Subscribing;
 use Illuminate\Support\Facades\Validator;
 use Response;
 use Carbon\Carbon;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Support\Facades\Auth;
 class subscriberController extends Controller
 {
 
@@ -41,6 +45,8 @@ class subscriberController extends Controller
 
     public function store(Request $request)
     {
+        
+        dd($request->all(), $request->checkedValues, explode(',',$request->checkedValues));
         $validator = Validator::make($request->all(), [
                 'fullname'      =>  'required',
                 'phone'         =>  'required',
@@ -77,16 +83,43 @@ class subscriberController extends Controller
             //dd($filepath, $request->file('image')->getClientOriginalName());
             $request->file('image')->storeAs('guests/'.$filepath, $request->file('image')->getClientOriginalName());
             $image = $filepath.'/'.$request->file('image')->getClientOriginalName();
-            
         }
+
+        $idConfig = [
+            "table"     =>  "guests",
+            "length"    =>  10,
+            "prefix"    =>  'AKM-01-'
+        ];
 
         $numOfMonth = $request->numOfMonths;
         $numOfMonth = intval($numOfMonth);
+        //$expirationDate = Carbon::now()->addMonths($numOfMonth)->toDateTimeString();
         $expirationDate = Carbon::now()->addMonths($numOfMonth);
+        $id  =  IdGenerator::generate($idConfig);
+        $guest                  =   new Guest;
+        $guest->id              =   $id;
+        $guest->name            =   $request->fullname;
+        $guest->email           =   $request->email;
+        $guest->gender          =   $request->sex;
+        $guest->phone           =   $request->phone;
+        $guest->cin             =   $request->cin;
+        $guest->price           =   $request->price;
+        $guest->birthday        =   $request->birthday;
+        $guest->image_path      =   $image;
+        $guest->expiration_date =   $expirationDate;
+        $guest->is_subscriber   =   1;
+        $guest->user_id         =   Auth::id();
+        $guest->save();
+
+        foreach(explode(',',$request->checkedValues) as $domain){
+            $subscribing = new Subscribing;
+            $subscribing->guest_id  =   $id;
+            $subscribing->domain_id = Auth::id();
+            $subscribing->save();
+        }
+
+        return response()->json($guest);
         
-        dd($filepath);
-        dd($expirationDate, $numOfMonth);
-        dd($request->all());
     }
 
     
