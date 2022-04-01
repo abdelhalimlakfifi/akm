@@ -12,7 +12,11 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        $config = ['table' => 'users', 'length' => 10, 'prefix' => 'AKM-10-'];
+        $config = [
+            'table' => 'users', 
+            'length' => 10, 
+            'prefix' => 'AKM-10-'
+        ];
         $id = IdGenerator::generate($config);
         User::create([
             'id' => $id,
