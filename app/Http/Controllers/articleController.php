@@ -20,7 +20,6 @@ class articleController extends Controller
 
     public function store(Request $request)
     {
-        
         // $validated = $request->validated();
         $validator = Validator::make($request->all(),
             [
