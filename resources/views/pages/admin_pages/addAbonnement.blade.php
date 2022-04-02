@@ -48,7 +48,7 @@
                 <div class="form-outline">
                     <label for="sex" class="form-label">الجنس</label>
                     <select id="sex" name="sex" class="form-control" required>
-                        <option selected>...إختر</option>
+                        <option value="0" selected>...إختر</option>
                         <option value="male">ذكر</option>
                         <option value="female">أنثى</option>
                     </select>
