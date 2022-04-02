@@ -26,7 +26,6 @@ class subscriberController extends Controller
         foreach ($domains as $key => $chunk) {
             $domains[$key] = array_values($chunk->toArray());
         }
-        //dd($domains);
         
         return view('pages/admin_pages/addAbonnement', ["domains" => $domains, "index" => 0]);
     }
@@ -45,13 +44,11 @@ class subscriberController extends Controller
 
     public function store(Request $request)
     {
-        
-        dd($request->all(), $request->checkedValues, explode(',',$request->checkedValues));
         $validator = Validator::make($request->all(), [
                 'fullname'      =>  'required',
                 'phone'         =>  'required',
                 'cin'           =>  'required',
-                'sex'           =>  'required',
+                'sex'           =>  'required|not_in:0',
                 'birthday'      =>  'required',
                 'price'         =>  'required',
                 'numOfMonths'   =>  'required'
@@ -60,10 +57,13 @@ class subscriberController extends Controller
             'phone.required'    =>  'يتطلب رقم الهاتف',
             'cin.required'      =>  'يتطلب رقم البطاقة الوطنية',
             'sex.required'      =>  'المرجو إختيار الجنس',
+            'sex.not_in'      =>    'المرجو إختيار الجنس',
             'birthday.required' =>  'يتطلب تاريخ الازدياد',
             'price.required'    =>  'يتطلب المساهمة الشهرية',
             'numOfMonths'       =>  'يتطلب عدد الشهور المؤداة',
         ]);
+       
+
         if($validator->fails())
         {
             return Response::json([
@@ -80,7 +80,7 @@ class subscriberController extends Controller
             $now        =   date('_Y_m_d_H_i_s');
             $filepath   =   str_replace(' ', '_', $request->fullname).$now;
             $filepath   =   str_replace(array('\\', '/',':' , '*', '"', "'", ">", "<", "|", '?', '؟'), '_', $filepath);
-            //dd($filepath, $request->file('image')->getClientOriginalName());
+            
             $request->file('image')->storeAs('guests/'.$filepath, $request->file('image')->getClientOriginalName());
             $image = $filepath.'/'.$request->file('image')->getClientOriginalName();
         }
@@ -93,7 +93,7 @@ class subscriberController extends Controller
 
         $numOfMonth = $request->numOfMonths;
         $numOfMonth = intval($numOfMonth);
-        //$expirationDate = Carbon::now()->addMonths($numOfMonth)->toDateTimeString();
+        
         $expirationDate = Carbon::now()->addMonths($numOfMonth);
         $id  =  IdGenerator::generate($idConfig);
         $guest                  =   new Guest;
